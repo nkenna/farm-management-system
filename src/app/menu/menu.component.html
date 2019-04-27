@@ -1,0 +1,29 @@
+<mat-toolbar color="primary">
+  <div fxHide.gt-xs>
+    <button mat-icon-button icon="onToggleSidenav()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+
+  <div>
+    <a>Farm Man</a>
+  </div>
+
+  <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
+    <ul fxLayout fxLayoutGap="15px" class="nav-items">
+      <li><a mat-menu-item>Crop Manaement</a></li>
+      <li><a mat-menu-item>Finance</a></li>
+      <li><a mat-menu-item>Resources</a></li>
+      <li><a mat-menu-item>Analyze</a></li>
+      <li><a mat-menu-item routerLink="/user-board" routerLinkActive="active">users</a></li>
+    </ul>
+
+  </div>
+ 
+
+  <!-- This fills the remaining space of the current row -->
+    <!-- <span class="example-fill-remaining-space"></span>-->
+
+   <!--  <span><a mat-menu-item><mat-icon svgIcon="baseline-person"></mat-icon></a></span>
+  <span><a mat-menu-item><mat-icon>mood</mat-icon></a></span>-->
+</mat-toolbar>

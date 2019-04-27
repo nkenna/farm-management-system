@@ -1,0 +1,7 @@
+.crop-card {
+    max-width: 400px;
+}
+
+crop-card-pic {
+    background-size: cover;
+}

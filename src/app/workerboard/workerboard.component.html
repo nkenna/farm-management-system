@@ -1,0 +1,72 @@
+<h2>Workers</h2>
+
+<mat-card matRipple [matRippleColor]="primary">
+    <mat-card-content>
+        <button mat-icon-button color="warn" matTooltip="Add new worker" (click)="openCreateWorker()">
+            <mat-icon>add_circle</mat-icon>
+          </button>
+
+          <button mat-icon-button color="warn">
+              <mat-icon>edit</mat-icon>
+            </button>
+
+            <button mat-icon-button color="warn" matTooltip="set work cost" (click)="openSetWorkCost()">
+            <mat-icon>account</mat-icon>Set Work Cost
+          </button>
+    </mat-card-content>
+</mat-card>
+
+
+
+<mat-table class="lessons-table mat-elevation-z8" [dataSource]="workerData">
+  
+    
+    <ng-container matColumnDef="Name">
+        <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+        <mat-cell *matCellDef="let workerData">{{workerData.firstname}} {{workerData.lastname}}</mat-cell>
+    </ng-container>
+  
+    
+
+   
+
+    <ng-container matColumnDef="edit">
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+        <mat-cell *matCellDef="let workerData"><button mat-icon-button color="accent" matTooltip="edit user" (click)="editUser(workerData)">
+            <mat-icon>edit</mat-icon>
+          </button></mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="comment">
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+        <mat-cell *matCellDef="let rData"><button mat-icon-button color="accent" matTooltip="add comment to user" (click)="userComment(workerData._id)">
+            <mat-icon>comment</mat-icon>
+          </button></mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="doc">
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+        <mat-cell *matCellDef="let workerData"><button mat-icon-button color="accent" matTooltip="upload user document" (click)="openDeleteWorker(workerData._id)">
+            <mat-icon>cloud_upload</mat-icon>
+          </button></mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="task">
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+        <mat-cell *matCellDef="let workerData"><button mat-icon-button color="accent" matTooltip="create new task for document" (click)="deleteUser(workerData._id)">
+            <mat-icon>add_alert</mat-icon>
+          </button></mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="delete">
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+        <mat-cell *matCellDef="let workerData"><button mat-icon-button color="warn" matTooltip="delete user" (click)="openDeleteWorker(workerData._id)">
+            <mat-icon>delete_sweep</mat-icon>
+          </button></mat-cell>
+    </ng-container>
+    
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    
+    <mat-row *matRowDef="let row; columns: displayedColumns" (click)="onRowClicked(row)"></mat-row>
+    
+</mat-table>

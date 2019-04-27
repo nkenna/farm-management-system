@@ -1,0 +1,91 @@
+<h1 mat-dialog-title>Create New User</h1>
+<div mat-dialog-content>
+ 
+   <p>First Name</p>
+  <mat-form-field>
+    <input matInput [(ngModel)]="newData.firstname">
+   
+  </mat-form-field>
+
+  <p>Last Name</p>
+  <mat-form-field>
+    <input matInput [(ngModel)]="newData.lastname">
+   
+  </mat-form-field>
+
+  <p>Address</p>
+  <mat-form-field>
+    <input matInput [(ngModel)]="newData.address">
+   
+  </mat-form-field>
+
+  <p>Email</p>
+  <mat-form-field>
+    <input matInput [(ngModel)]="newData.email">
+   
+  </mat-form-field>
+
+   <p>Password</p>
+  <mat-form-field>
+    <input matInput (keyup)="passwordLen($event)" [(ngModel)]="password" type="password">
+    <mat-hint> <p color="warn">{{pl}}</p> </mat-hint>
+  </mat-form-field>
+ 
+  <p>Verify Password</p>
+  <mat-form-field>
+    <input (keyup)="verifyPassword($event)" matInput [(ngModel)]="vpassword" type="password">
+    <mat-hint> <p color="warn">{{password_error}}</p> </mat-hint>
+    
+   
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker" [(ngModel)]="newData.dob" placeholder="Choose a date">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker  #picker></mat-datepicker>
+  </mat-form-field>
+
+  <p>User Role</p>
+  <mat-form-field>
+  <mat-label>Select an option</mat-label>
+  <mat-select [(value)]="newData.role">
+    <mat-option>None</mat-option>
+    <mat-option value="SA">Super Admin</mat-option>
+    <mat-option value="NA">Normal Admin</mat-option>
+    <mat-option value="NU">Normal User</mat-option>
+  </mat-select>
+</mat-form-field>
+
+<p>Sex</p>
+  <mat-form-field>
+  <mat-label>Select an option</mat-label>
+  <mat-select [(value)]="newData.sex">
+    <mat-option>None</mat-option>
+    <mat-option value="male">Male</mat-option>
+    <mat-option value="female">Female</mat-option>
+    
+  </mat-select>
+</mat-form-field>
+
+  <p>City/Location</p>
+  <mat-form-field>
+    <input matInput [(ngModel)]="newData.city">
+   
+  </mat-form-field>
+
+  <p>Country</p>
+  <mat-form-field>
+    <input matInput [(ngModel)]="newData.country">
+   
+  </mat-form-field>
+
+  <p>Phone/Mobile Number</p>
+  <mat-form-field>
+    <input matInput [(ngModel)]="newData.phone">
+   
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button *ngIf="savebtn1 && savebtn2" mat-button [mat-dialog-close]="newData" cdkFocusInitial>Update</button>
+</div>

@@ -1,0 +1,33 @@
+
+<mat-table class="lessons-table mat-elevation-z8" [dataSource]="dataC">
+  
+    
+    <ng-container matColumnDef="Category">
+        <mat-header-cell *matHeaderCellDef>Category</mat-header-cell>
+        <mat-cell *matCellDef="let dataC">{{dataC.name}}</mat-cell>
+    </ng-container>
+  
+    
+
+   
+
+    <ng-container matColumnDef="Cost per hour">
+        <mat-header-cell *matHeaderCellDef>Cost per hour</mat-header-cell>
+        <mat-cell *matCellDef="let dataC">
+        <mat-form-field>
+          <input matInput [(ngModel)]="dataC.workcost">
+   
+  </mat-form-field></mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Set for all workers">
+        <mat-header-cell *matHeaderCellDef>Set for all workers</mat-header-cell>
+        <mat-cell *matCellDef="let dataC">  <mat-checkbox></mat-checkbox></mat-cell>
+    </ng-container>
+
+  
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    
+    <mat-row *matRowDef="let row; columns: displayedColumns" (click)="onRowClicked(row)"></mat-row>
+    
+</mat-table>
